@@ -1,0 +1,5 @@
+# Shell scripts run inside Linux containers and on macOS/Linux hosts; with a
+# CRLF checkout on Windows they fail with a confusing "bash\r: not found".
+*.sh text eol=lf
+# cmd.exe misreads labels in LF-only batch files.
+*.cmd text eol=crlf

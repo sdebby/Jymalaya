@@ -1,0 +1,17 @@
+.env
+config/athlete.local.yaml
+config/schedule.local.yaml
+data/
+# package-c1.cmd output (the saved Jymalaya-C1 image and its run scripts)
+dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+
+# Local only, never pushed to GitHub
+assets/
+backup.cmd
+.claude/
+*.tar
+frontend/.pytest_cache/

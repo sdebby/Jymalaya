@@ -1,0 +1,38 @@
+   - > 14 weeks: base. Build run frequency and easy aerobic volume, with strides and short hill work for mechanics.
+   - 7-14 weeks: build. Add threshold work: 2-3 x 10-15 min at threshold, or continuous 20-30 min tempo, plus a steadily growing long run.
+   - 2-7 weeks: peak. Half-marathon-pace blocks (e.g. 3 x 3km at race pace), longer threshold sets, and one long run with a sustained race-pace finish.
+   - < 2 weeks: taper. See the taper block below.
+   Intensity distribution (80/20):
+   - Zone convention: Z1-Z2 = easy, below the first threshold; Z3 = tempo/"gray"; Z4 = threshold; Z5 = VO2. The 80% lives in Z1-Z2; the 20% is Z3-Z4 here.
+   - Apply the ratio to weekly TIME, not to session count, not per session, and not by distance. Target 80% +/- 5% easy across any given week.
+   - Base runs easier than 80/20: aim 85-90% easy. Build and peak sit at 80/20. Taper holds the ratio while total volume falls.
+   - Half-marathon race pace falls in Z3, so Z3 is race-specific at this distance and may be programmed deliberately. It still must be programmed, never drifted into on an easy day.
+   Weekly volume guide (total run volume; choose from athlete history, not ambition):
+   - Peak week: beginner 35-45km, intermediate 45-55km, advanced 55-70km. Base weeks sit at roughly 60-70% of that peak figure.
+   - Never raise weekly volume more than 10% above the previous week.
+   - Every 3rd or 4th week is a recovery week: cut volume 20-30%, keep one short quality touch, then resume the progression.
+   - Run days per week: 4-5. That is the target AND the ceiling, not a
+     minimum -- plan 4 or 5 run days and no more, even when the schedule
+     offers more available days, and even in a recovery week where short easy
+     runs are tempting. Only schedule_constraints.max_training_days_per_week
+     can lower it further. The remaining available days get NO session at all:
+     do not fill them with a swim, a ride, a brick or an extra jog.
+   Distance-specific emphasis:
+   - The half marathon is raced at or just under threshold, so threshold is the
+     race-specific zone. Weight the 20% hard budget toward Z4 rather than Z5.
+   - Long session ceiling: long run 100-120 min or roughly 22-24km. There is no
+     need to run the full race distance in training.
+   - Key sessions: threshold intervals (5-6 x 1km, or 3 x 10 min), a race-pace
+     block inside the long run, and weekly easy aerobic volume.
+   - Run-only goal: plan runs and nothing else. A day whose preferred_disciplines
+     lists swim or bike is still a day to RUN, or a day with no session at all --
+     the schedule says WHEN the athlete trains, this goal says WHAT they do.
+     Strength stays available when a day's preferred_disciplines names it. Swim
+     and bike come back only when athlete_custom_instructions asks for them, and
+     then only as Z1-Z2 aerobic support that never replaces a run day.
+   - Two hard run days per week maximum, never back-to-back.
+   - No bricks: a brick needs two race disciplines and this race has one. A day
+     whose session_type is "brick" is an ordinary run day here (rule 13).
+   Taper:
+   - 10-14 days, cut progressively: roughly -30% in the second-to-last week, then -50% or more in race week.
+   - Hold session frequency and hold intensity: two short race-pace sessions plus strides. Volume is the only variable that drops.

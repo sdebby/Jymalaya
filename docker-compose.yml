@@ -1,0 +1,41 @@
+# Phase 1 infra: InfluxDB 2.x. The FastAPI app runs on the host
+# (uvicorn main:app --reload). In Phase 2 the app gets its own service here.
+#
+# Defaults below match .env.example so `docker compose up -d influxdb`
+# gives a working local stack with no extra config.
+#
+# The project name is pinned rather than derived from the directory name, so
+# renaming the repo folder can never re-point this stack at a fresh, empty set
+# of volumes.
+name: jymalaya
+
+services:
+  influxdb:
+    image: influxdb:2.9.1
+    container_name: jymalaya-influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+      - influxdb-config:/etc/influxdb2
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUXDB_USERNAME:-admin}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUXDB_PASSWORD:-tricoach-admin}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUXDB_ORG:-tricoach}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUXDB_BUCKET:-tricoach}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUXDB_TOKEN:-tricoach-dev-token}
+    restart: unless-stopped
+
+volumes:
+  # Pinned to the pre-rename names (the project used to be called after the
+  # `brickplans` folder), so the existing local training history stays attached.
+  # To move to `jymalaya_`-prefixed volumes, copy the data across first:
+  #   docker volume create jymalaya_influxdb-data
+  #   docker run --rm -v brickplans_influxdb-data:/from -v jymalaya_influxdb-data:/to \
+  #     alpine sh -c "cd /from && cp -a . /to"
+  # then drop the two `name:` lines below.
+  influxdb-data:
+    name: brickplans_influxdb-data
+  influxdb-config:
+    name: brickplans_influxdb-config

@@ -1,0 +1,19 @@
+{
+  "summary": "string -- one sentence, under 120 characters",
+  "sports": [
+    {
+      "discipline": "swim | bike | run",
+      "change": "add | more | less | drop",
+      "share_pct": "integer 0-40 -- this sport's share of each week's TSS after the change",
+      "sessions_per_week": "integer or null",
+      "note": "string or null -- the kind of work, a few words"
+    }
+  ],
+  "load": {
+    "weekly_hours_cap": "number 1-40 or null",
+    "ramp": "gentle | standard | ambitious | null",
+    "recovery_cadence_weeks": "integer 2-4 or null",
+    "peak_ctl": "number 20-200 or null"
+  },
+  "left_to_weekly_plan": ["string -- one short line per instruction the weekly plan handles"]
+}

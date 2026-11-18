@@ -1,0 +1,43 @@
+# Keep the build context small and the image free of local state. The SPA is
+# always rebuilt from source in the ui stage -- frontend/dist here is a stale
+# local build and must never reach the image.
+.git
+.gitignore
+.github
+.claude
+.venv
+venv
+__pycache__
+**/__pycache__
+*.pyc
+.pytest_cache
+.mypy_cache
+
+# Local secrets and runtime state -- these belong in volumes, not the image.
+.env
+.env.*
+!.env.example
+data/
+config/*.local.yaml
+
+# Not needed at runtime
+tests/
+assets/
+docs/
+*.md
+!README.md
+start.cmd
+backup.cmd
+package-c1.cmd
+# package-c1.cmd output: the saved image alone is hundreds of MB.
+dist/
+docker-compose.yml
+docker-compose.deploy.yml
+docker-compose.c1.yml
+Dockerfile
+.dockerignore
+
+# Frontend build artifacts -- npm ci and vite build regenerate these.
+frontend/node_modules/
+frontend/dist/
+**/*.tsbuildinfo

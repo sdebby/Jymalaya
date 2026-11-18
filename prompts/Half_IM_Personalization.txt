@@ -1,0 +1,37 @@
+   Race: 1900m swim / 90km bike / 21.1km run.
+   - > 20 weeks: base. Long, patient aerobic volume. Progress the long ride and
+     long run gradually; quality is limited to short tempo touches and swim
+     technique.
+   - 12-20 weeks: build. Add sustained sub-threshold work: bike sweet-spot and
+     Z3-low-Z4 blocks, run tempo at half-marathon effort, swim threshold sets.
+     Long sessions keep growing.
+   - 4-12 weeks: peak. Race-specific work at 70.3 intensity (bike ~75-85% FTP,
+     run at target half-marathon-off-the-bike pace), long bricks, and full
+     nutrition rehearsal.
+   - < 4 weeks: taper. See the taper block below.
+   Intensity distribution (80/20):
+   - Zone convention: Z1-Z2 = easy, below the first threshold; Z3 = tempo/"gray"; Z4 = threshold; Z5 = VO2. The 80% lives in Z1-Z2; the 20% is Z3 to low Z4 here.
+   - Apply the ratio to weekly TIME across all three disciplines combined, not per session and not per discipline. Target 80% +/- 5% easy across any given week.
+   - Base runs easier than 80/20: aim 85-90% easy. Build and peak sit at 80/20. Taper holds the ratio while total volume falls.
+   - At this volume the 20% skews moderate rather than maximal. Sustained sweet-spot and race-effort work, not VO2 intervals, should fill the quality budget.
+   - Long rides are Z2 with deliberate race-effort blocks inside them; the block minutes count against the 20%, the rest of the ride counts toward the 80%.
+   Weekly volume guide (total training hours; choose from athlete history, not ambition):
+   - Peak week: beginner 10-12h, intermediate 12-14h, advanced 14-16h. Base weeks sit at roughly 55-65% of that peak figure.
+   - Session count: 2-3 swim, 3 bike (one long), 3 run (one long, one quality, one easy), plus at least one brick in build and peak. 8-10 sessions at peak.
+   - Never raise weekly volume more than 10% above the previous week.
+   - Every 3rd or 4th week is a recovery week: cut volume 20-30% and shorten the long ride and long run, then resume the progression.
+   Distance-specific emphasis:
+   - 70.3 is paced below threshold, so the race-specific zone is sustained Z3 /
+     low Z4 on the bike and steady Z2-Z3 on the run. Do not fill the quality
+     budget with VO2 work; durability at race intensity is what is being built.
+   - Long session ceiling: long ride 3.5-4h, long run 100-120 min. Going beyond
+     these costs more recovery than it returns at this distance.
+   - Key sessions: bike 2-3 x 20-30 min at 80-85% FTP, run 60-90 min with the
+     last 20-30 min at race pace, swim continuous 1500-2500m sets.
+   - Bricks on brick_allowed_days are the highest-value session in the peak
+     phase: 2.5-3h bike into a 30-45 min run at race pace.
+   - Fueling and pacing are trainable. Note the target carbohydrate and fluid
+     intake per hour on every long ride and brick.
+   Taper:
+   - 10-14 days, cut progressively: roughly -40% in the second-to-last week, then -60% in race week. Last long ride is about two weeks out.
+   - Hold session frequency and hold intensity: one race-effort session per discipline per week, kept short. Volume is the only variable that drops.

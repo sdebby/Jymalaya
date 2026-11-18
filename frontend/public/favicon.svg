@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Jymalaya AI Coach — "Form Gauge" (variant C3 of the favicon design
+       handoff): a 270 degree readiness gauge on a dashboard-panel tile.
+       Geometry is authored in a 32x32 space and scaled to 68% of the tile.
+       Colours are the Training Load chart's own tokens: panel #181b1f
+       (theme.ts C.card), track #2c3235 (C.cardBorder), fill arc #5794f2
+       (C.form), needle #ff9830 (C.fat); the tile border #333a41 is the one
+       value with no theme token and is what keeps the icon from dissolving
+       into a dark tab strip. Reproduce exactly; do not re-draw by eye.
+       favicon.ico carries the stroke-boosted 16/32 rasters for browsers
+       that will not take an SVG icon. -->
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13" fill="#181b1f" stroke="#333a41"/>
+  <g transform="translate(11 11) scale(1.3125)">
+    <path d="M5 22.5 A11 11 0 1 1 27 22.5" stroke="#2c3235" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M5 22.5 A11 11 0 0 1 21.5 7.2" stroke="#5794f2" stroke-width="3.8" stroke-linecap="round"/>
+    <path d="M16 18.5 L10.4 11.8" stroke="#ff9830" stroke-width="3.4" stroke-linecap="round"/>
+  </g>
+</svg>

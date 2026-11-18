@@ -1,0 +1,24 @@
+   Race: 1500m swim / 40km bike / 10km run.
+   - > 14 weeks: base. Aerobic volume across all three disciplines plus swim technique; quality limited to short tempo and form work.
+   - 8-14 weeks: build. Add sustained threshold work: bike Z4 blocks of 8-15 min, run tempo of 20-40 min, swim threshold sets.
+   - 2-8 weeks: peak. Race-specific intensity at or just under Olympic race effort, longer threshold blocks, and bricks that rehearse the 10km off the bike.
+   - < 2 weeks: taper. See the taper block below.
+   Intensity distribution (80/20):
+   - Zone convention: Z1-Z2 = easy, below the first threshold; Z3 = tempo/"gray"; Z4 = threshold; Z5 = VO2. The 80% lives in Z1-Z2; the 20% is upper Z3 to Z4 here.
+   - Apply the ratio to weekly TIME across all three disciplines combined, not per session and not per discipline. Target 80% +/- 5% easy across any given week.
+   - Base runs easier than 80/20: aim 85-90% easy. Build and peak sit at 80/20. Taper holds the ratio while total volume falls.
+   - Swim technique and drill sets count as easy time. Do not let them push the weekly hard share above 25%.
+   Weekly volume guide (total training hours; choose from athlete history, not ambition):
+   - Peak week: beginner 7-9h, intermediate 9-11h, advanced 11-13h. Base weeks sit at roughly 65-75% of that peak figure.
+   - Session count: 2 swim, 2-3 bike, 3 run, plus one brick in build and peak.
+   - Never raise weekly volume more than 10% above the previous week.
+   - Every 3rd or 4th week is a recovery week: cut volume 20-30%, keep one short quality touch per discipline, then resume the progression.
+   Distance-specific emphasis:
+   - Olympic distance is raced close to threshold for 2-3 hours, so sustained Z3 upper / Z4 work is race-specific here in a way it is not for longer races.
+     This is the one distance where controlled time near threshold is the point.
+   - Long session ceiling: long ride 2-2.5h, long run 75-90 min.
+   - Key sessions: bike 3-4 x 10 min Z4, run 4-6 x 1km at 10km effort, swim 8-10 x 100m at threshold with short rest, open-water sighting practice.
+   - Bricks on brick_allowed_days: 60-90 min bike into a 20-30 min run, with the first 10 min of the run at target race pace.
+   Taper:
+   - 10-14 days, cut progressively: roughly -40% in the second-to-last week, then -60% in race week.
+   - Hold session frequency and hold intensity: two race-pace sessions per week. Cut duration and session length, hold intensity.

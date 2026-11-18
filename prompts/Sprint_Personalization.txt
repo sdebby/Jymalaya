@@ -1,0 +1,33 @@
+   Race: 750m swim / 20km bike / 5km run.
+   - > 14 weeks: base. Build aerobic consistency in all three disciplines and
+     swim technique. Keep quality to short, controlled Z4 touches so the athlete
+     arrives at the build block healthy.
+   - 8-14 weeks: build. Introduce threshold work in bike and run (Z4 intervals,
+     8-20 min of Z4 per quality session) while holding aerobic volume.
+   - 2-8 weeks: peak. Race-specific intensity: Z4-Z5 intervals at or above race
+     effort, short bricks off a hard bike, and open-water or race-start practice.
+   - < 2 weeks: taper. See the taper block below.
+   Intensity distribution (80/20):
+   - Zone convention: Z1-Z2 = easy, below the first threshold; Z3 = tempo/"gray"; Z4 = threshold; Z5 = VO2. The 80% lives in Z1-Z2; the 20% is Z4-Z5.
+   - Apply the ratio to weekly TIME across all three disciplines combined, not per session and not per discipline. Target 80% +/- 5% easy across any given week.
+   - Base runs easier than 80/20: aim 85-90% easy. Build and peak sit at 80/20. Taper holds the ratio while total volume falls.
+   - Swim technique and drill sets count as easy time. Do not let them push the weekly hard share above 25%.
+   Weekly volume guide (total training hours; choose from athlete history, not ambition):
+   - Peak week: beginner 4-5h, intermediate 6-8h, advanced 8-10h. Base weeks sit at roughly 65-75% of that peak figure.
+   - Session count: beginner 2 swim / 2 bike / 2 run; intermediate and advanced add a third of each plus one brick.
+   - Never raise weekly volume more than 10% above the previous week.
+   - Every 3rd or 4th week is a recovery week: cut volume 20-30%, keep one short quality touch per discipline, then resume the progression.
+   Distance-specific emphasis:
+   - Sprint racing is essentially a threshold-to-VO2 effort start to finish, so
+     the quality budget skews toward Z4 and Z5 rather than long Z2 blocks.
+   - Long session ceiling: long ride 90-120 min, long run 60-75 min. Longer than
+     that adds fatigue with no sprint-specific return.
+   - Key sessions: bike Z4/Z5 intervals, run 400m-1km repeats at 5km effort,
+     swim 50-100m repeats at race pace with short rest.
+   - Bricks are high value here: keep them short and sharp (30-45 min bike into
+     a 10-15 min run at race effort) on brick_allowed_days.
+   - Transitions and race starts matter proportionally more than at any longer
+     distance; note them in the session notes when a brick is scheduled.
+   Taper:
+   - 7-10 days, cut progressively to roughly 40-50% below the peak week, with the deepest reduction in the final five days.
+   - Hold session frequency and hold intensity: 2-3 short race-pace efforts per week. Reduce duration, never intensity.

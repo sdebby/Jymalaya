@@ -1,0 +1,11 @@
+{
+  "plan_adherence": {
+    "had_structured_workout": false,
+    "verdict": "on target | over-cooked | under-cooked | not comparable",
+    "detail": "how execution compared to the prescribed steps, or why it is not comparable"
+  },
+  "what_went_well": [],
+  "what_to_improve": [],
+  "form_context": ["how this session sits against current CTL/ATL/TSB and recent comparable sessions, one point per entry"],
+  "flags": []
+}

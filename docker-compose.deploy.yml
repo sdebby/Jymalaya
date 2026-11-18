@@ -1,0 +1,78 @@
+# Jymalaya-C1 -- the full portable stack: backend + built dashboard in one
+# container, plus its own InfluxDB. Copy this repo to the target machine, fill
+# in .env, then:
+#
+#   docker compose -f docker-compose.deploy.yml up -d --build
+#   open http://localhost:8080
+#
+# This is a separate compose project ("jymalaya-c1") from the Phase 1
+# docker-compose.yml used by start.cmd, so it gets its own volumes and never
+# touches the local dev InfluxDB.
+name: jymalaya-c1
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Jymalaya-C1
+    env_file: .env
+    environment:
+      # Inside the compose network InfluxDB is a service name, not localhost --
+      # this deliberately overrides whatever .env says.
+      INFLUXDB_URL: http://influxdb:8086
+      # INFO keeps the full Claude request/response dumps out of the logs.
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      # The athlete's calendar day drives plan freshness, so run on their clock.
+      TZ: ${TZ:-Asia/Jerusalem}
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    volumes:
+      # Cached plan, schedule, coach instructions, sync status, avatar.
+      - app-data:/app/data
+      # athlete.local.yaml, written from the Settings modal. Named volumes are
+      # seeded from the image, so the versioned athlete.yaml is still there.
+      - app-config:/app/config
+      # Garmin token cache + MFA handoff file. Without this every restart
+      # forces a fresh Garmin login and a new MFA code.
+      - app-tokens:/home/app/.tricoach
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    restart: unless-stopped
+
+  influxdb:
+    image: influxdb:2.9.1
+    container_name: jymalaya-c1-influxdb
+    volumes:
+      - influx-data:/var/lib/influxdb2
+      - influx-config:/etc/influxdb2
+    environment:
+      # Runs once, against an empty volume: creates the org, bucket, admin user
+      # and the admin token. Changing INFLUXDB_TOKEN later does NOT
+      # re-provision -- you would have to remove the volume.
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUXDB_USERNAME:-admin}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUXDB_PASSWORD:-tricoach-admin}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUXDB_ORG:-tricoach}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUXDB_BUCKET:-tricoach}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUXDB_TOKEN:-tricoach-dev-token}
+      TZ: ${TZ:-Asia/Jerusalem}
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    # Not published: the app reaches it over the compose network. Uncomment to
+    # poke at the Influx UI -- 8087 avoids clashing with a dev stack on 8086.
+    # ports:
+    #   - "8087:8086"
+    restart: unless-stopped
+
+volumes:
+  app-data:
+  app-config:
+  app-tokens:
+  influx-data:
+  influx-config:

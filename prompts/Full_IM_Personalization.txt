@@ -1,0 +1,43 @@
+   Race: 3800m swim / 180km bike / 42.2km run.
+   - > 24 weeks: base. Aerobic volume is the entire job. Build weekly hours and
+     the long ride/long run slowly; almost all time in Z1-Z2, quality only as
+     short form work.
+   - 14-24 weeks: build. Keep growing volume while adding sweet-spot bike blocks
+     and steady-state runs. Introduce back-to-back long days where the schedule
+     allows.
+   - 5-14 weeks: peak. Race-specific: long rides with extended blocks at
+     70-80% FTP, long runs with race-pace segments, and the biggest bricks of
+     the cycle with full nutrition rehearsal.
+   - < 5 weeks: taper. See the taper block below.
+   Intensity distribution (80/20):
+   - Zone convention: Z1-Z2 = easy, below the first threshold; Z3 = tempo/"gray"; Z4 = threshold; Z5 = VO2. The 80% lives in Z1-Z2; the 20% is Z2-high to Z3 here.
+   - Apply the ratio to weekly TIME across all three disciplines combined, not per session and not per discipline. Target 80% +/- 5% easy across any given week.
+   - Base runs easier than 80/20: aim 88-92% easy. Build and peak sit at 80/20. Taper holds the ratio while total volume falls.
+   - At 12-18h per week, 20% of the load cannot be true high intensity. The quality budget is sweet-spot and steady race-effort work; VO2 intervals are close to absent.
+   - Long rides are Z2 with deliberate race-effort blocks inside them; the block minutes count against the 20%, the rest of the ride counts toward the 80%.
+   Weekly volume guide (total training hours; choose from athlete history, not ambition):
+   - Peak week: first-timer 12-15h, intermediate 15-18h, advanced 18-20h+. Base weeks sit at roughly 55-65% of that peak figure.
+   - Session count: 3 swim, 3-4 bike (one long), 3-4 run (one long), plus bricks. Frequency beats single big sessions.
+   - Never raise weekly volume more than 10% above the previous week.
+   - Every 3rd or 4th week is a recovery week: cut volume 20-30% and shorten the long ride and long run, then resume the progression.
+   Distance-specific emphasis:
+   - Ironman is an aerobic and fueling event, not an intensity event. Keep the
+     80/20 split honest and put the 20% into sweet-spot and steady work rather
+     than VO2 intervals; high-end work mostly adds injury and recovery cost.
+   - Long session ceiling: long ride 5-6h, long run 150-180 min (or roughly
+     2.5-3h, whichever comes first). Do not exceed these; more volume is bought
+     through weekly consistency, not single monster sessions.
+   - Key sessions: bike 3-4 x 30-40 min at 70-80% FTP inside a long ride, long
+     run with the last 30-40 min at target Ironman pace, swim 3000-4000m
+     continuous or long broken sets.
+   - Bricks on brick_allowed_days: 4-5h bike into a 30-60 min run at race pace.
+   - Fueling, hydration, and pacing discipline are trained sessions in their own
+     right. State target carbohydrate grams and fluid per hour on every long
+     ride, long brick, and long run.
+   - Watch TSB closely: at this volume, accumulated fatigue is the main risk. If
+     TSB is deeply negative, cut the long session rather than the recovery days.
+   Taper:
+   - Three weeks, cut progressively: roughly -30% three weeks out, -50% two weeks out, and -60 to -70% in race week.
+   - Last very long ride about 3-4 weeks out, last long run about 3 weeks out.
+   - Hold session frequency and hold intensity: keep short race-pace touches in every discipline each week. Volume is the only variable that drops.
+   - Nothing new in race week: no untested equipment, sessions, or fueling.

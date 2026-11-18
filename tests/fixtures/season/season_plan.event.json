@@ -1,0 +1,773 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-11",
+  "plan_id": "3f6c0a7e9b1d4e5f8a2c1b0d7e6f5a4b",
+  "mode": "event",
+  "status": "active",
+  "created_at": "2026-10-11T16:20:00+00:00",
+  "updated_at": "2026-10-11T16:20:00+00:00",
+  "payload_changed_at": "2026-10-11T16:20:00+00:00",
+  "week_start_day": "monday",
+  "event": {
+    "event_id": "ev_olympic_2027",
+    "name": "Eilat Olympic Triathlon",
+    "type": "olympic",
+    "race_date": "2027-03-14"
+  },
+  "settings": {
+    "weekly_hours_cap": 9.0,
+    "ramp": "standard",
+    "growth_pct_per_week": 8.0,
+    "recovery_cadence_weeks": 3,
+    "recovery_factor": 0.7,
+    "focus": null
+  },
+  "baseline": {
+    "ctl": 41.0,
+    "atl": 45.0,
+    "tsb": -4.0,
+    "avg_weekly_tss_4w": 290,
+    "avg_weekly_hours_4w": 5.3,
+    "tss_per_hour": 55,
+    "captured_at": "2026-10-11",
+    "limited_history": false
+  },
+  "targets": {
+    "peak_ctl": 72.0,
+    "peak_weekly_tss": 495,
+    "compressed": false
+  },
+  "summary": {
+    "line1": "22 weeks to Eilat Olympic Triathlon (14 Mar): 7 base, 7 build, 6 peak, 1 taper, then race week. Projected CTL 65 by the last peak week (from 41).",
+    "line2": "Starts 12 Oct with a base week of 290 TSS; form is OK (TSB -4)."
+  },
+  "weeks": [
+    {
+      "week_start": "2026-10-12",
+      "index": 1,
+      "phase": "base",
+      "kind": "loading",
+      "target_tss": 290,
+      "target_hours": 5.3,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 41.1,
+      "status": "next",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Aerobic volume and technique",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 58,
+        "bike": 125,
+        "run": 107
+      },
+      "discipline_hours": {
+        "swim": 1.1,
+        "bike": 2.3,
+        "run": 1.9
+      }
+    },
+    {
+      "week_start": "2026-10-19",
+      "index": 2,
+      "phase": "base",
+      "kind": "loading",
+      "target_tss": 313,
+      "target_hours": 5.7,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 41.6,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Aerobic volume and technique",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 63,
+        "bike": 134,
+        "run": 116
+      },
+      "discipline_hours": {
+        "swim": 1.1,
+        "bike": 2.4,
+        "run": 2.1
+      }
+    },
+    {
+      "week_start": "2026-10-26",
+      "index": 3,
+      "phase": "base",
+      "kind": "loading",
+      "target_tss": 338,
+      "target_hours": 6.1,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 42.7,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Aerobic volume and technique",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 68,
+        "bike": 145,
+        "run": 125
+      },
+      "discipline_hours": {
+        "swim": 1.2,
+        "bike": 2.6,
+        "run": 2.3
+      }
+    },
+    {
+      "week_start": "2026-11-02",
+      "index": 4,
+      "phase": "base",
+      "kind": "recovery",
+      "target_tss": 237,
+      "target_hours": 4.3,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 41.3,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Absorb the load",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 47,
+        "bike": 102,
+        "run": 88
+      },
+      "discipline_hours": {
+        "swim": 0.9,
+        "bike": 1.9,
+        "run": 1.6
+      }
+    },
+    {
+      "week_start": "2026-11-09",
+      "index": 5,
+      "phase": "base",
+      "kind": "loading",
+      "target_tss": 365,
+      "target_hours": 6.6,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 43.0,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Aerobic volume and technique",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 73,
+        "bike": 157,
+        "run": 135
+      },
+      "discipline_hours": {
+        "swim": 1.3,
+        "bike": 2.9,
+        "run": 2.5
+      }
+    },
+    {
+      "week_start": "2026-11-16",
+      "index": 6,
+      "phase": "base",
+      "kind": "loading",
+      "target_tss": 394,
+      "target_hours": 7.2,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 45.0,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Aerobic volume and technique",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 79,
+        "bike": 169,
+        "run": 146
+      },
+      "discipline_hours": {
+        "swim": 1.4,
+        "bike": 3.1,
+        "run": 2.7
+      }
+    },
+    {
+      "week_start": "2026-11-23",
+      "index": 7,
+      "phase": "base",
+      "kind": "loading",
+      "target_tss": 426,
+      "target_hours": 7.7,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 47.5,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Aerobic volume and technique",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 85,
+        "bike": 183,
+        "run": 158
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 3.3,
+        "run": 2.9
+      }
+    },
+    {
+      "week_start": "2026-11-30",
+      "index": 8,
+      "phase": "build",
+      "kind": "recovery",
+      "target_tss": 298,
+      "target_hours": 5.4,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 46.7,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Absorb the load",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 54,
+        "bike": 134,
+        "run": 110
+      },
+      "discipline_hours": {
+        "swim": 1.0,
+        "bike": 2.4,
+        "run": 2.0
+      }
+    },
+    {
+      "week_start": "2026-12-07",
+      "index": 9,
+      "phase": "build",
+      "kind": "loading",
+      "target_tss": 460,
+      "target_hours": 8.4,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 49.7,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Threshold blocks",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 83,
+        "bike": 207,
+        "run": 170
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 3.8,
+        "run": 3.1
+      }
+    },
+    {
+      "week_start": "2026-12-14",
+      "index": 10,
+      "phase": "build",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 52.9,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Threshold blocks",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 89,
+        "bike": 223,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.6,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2026-12-21",
+      "index": 11,
+      "phase": "build",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 55.7,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Threshold blocks",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 89,
+        "bike": 223,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.6,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2026-12-28",
+      "index": 12,
+      "phase": "build",
+      "kind": "recovery",
+      "target_tss": 346,
+      "target_hours": 6.3,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 54.7,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Absorb the load",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 62,
+        "bike": 156,
+        "run": 128
+      },
+      "discipline_hours": {
+        "swim": 1.1,
+        "bike": 2.8,
+        "run": 2.3
+      }
+    },
+    {
+      "week_start": "2027-01-04",
+      "index": 13,
+      "phase": "build",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 57.2,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Threshold blocks",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 89,
+        "bike": 223,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.6,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-01-11",
+      "index": 14,
+      "phase": "build",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 59.3,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Threshold blocks",
+      "split": {
+        "swim": 18,
+        "bike": 45,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 89,
+        "bike": 223,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.6,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-01-18",
+      "index": 15,
+      "phase": "peak",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 61.1,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Race-pace work",
+      "split": {
+        "swim": 17,
+        "bike": 46,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 84,
+        "bike": 228,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-01-25",
+      "index": 16,
+      "phase": "peak",
+      "kind": "recovery",
+      "target_tss": 346,
+      "target_hours": 6.3,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 59.3,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Absorb the load",
+      "split": {
+        "swim": 17,
+        "bike": 46,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 59,
+        "bike": 159,
+        "run": 128
+      },
+      "discipline_hours": {
+        "swim": 1.1,
+        "bike": 2.9,
+        "run": 2.3
+      }
+    },
+    {
+      "week_start": "2027-02-01",
+      "index": 17,
+      "phase": "peak",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 61.0,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Race-pace work",
+      "split": {
+        "swim": 17,
+        "bike": 46,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 84,
+        "bike": 228,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-02-08",
+      "index": 18,
+      "phase": "peak",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 62.5,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Race-pace work",
+      "split": {
+        "swim": 17,
+        "bike": 46,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 84,
+        "bike": 228,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-02-15",
+      "index": 19,
+      "phase": "peak",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 63.8,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Race-pace work",
+      "split": {
+        "swim": 17,
+        "bike": 46,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 84,
+        "bike": 228,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-02-22",
+      "index": 20,
+      "phase": "peak",
+      "kind": "loading",
+      "target_tss": 495,
+      "target_hours": 9.0,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 64.9,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Race-pace work",
+      "split": {
+        "swim": 17,
+        "bike": 46,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 84,
+        "bike": 228,
+        "run": 183
+      },
+      "discipline_hours": {
+        "swim": 1.5,
+        "bike": 4.1,
+        "run": 3.3
+      }
+    },
+    {
+      "week_start": "2027-03-01",
+      "index": 21,
+      "phase": "taper",
+      "kind": "taper",
+      "target_tss": 297,
+      "target_hours": 5.4,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 61.4,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Cut volume, keep intensity",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 59,
+        "bike": 128,
+        "run": 110
+      },
+      "discipline_hours": {
+        "swim": 1.1,
+        "bike": 2.3,
+        "run": 2.0
+      }
+    },
+    {
+      "week_start": "2027-03-08",
+      "index": 22,
+      "phase": "race",
+      "kind": "race",
+      "target_tss": 198,
+      "target_hours": 3.6,
+      "actual_tss": null,
+      "actual_hours": null,
+      "ctl_end": 56.3,
+      "status": "projected",
+      "pinned": false,
+      "pin_note": null,
+      "source": "builder",
+      "focus": "Race week",
+      "split": {
+        "swim": 20,
+        "bike": 43,
+        "run": 37
+      },
+      "split_source": "table",
+      "discipline_tss": {
+        "swim": 40,
+        "bike": 85,
+        "run": 73
+      },
+      "discipline_hours": {
+        "swim": 0.7,
+        "bike": 1.5,
+        "run": 1.3
+      }
+    }
+  ],
+  "checkins": [],
+  "revisions": [
+    {
+      "at": "2026-10-11T16:20:00+00:00",
+      "trigger": "user",
+      "week_start": "2026-12-14",
+      "field": "target_tss",
+      "from": 497,
+      "to": 495,
+      "reason_code": "HOURS_CAP",
+      "reason_text": "Held to 9 h a week (495 TSS)"
+    },
+    {
+      "at": "2026-10-11T16:20:00+00:00",
+      "trigger": "user",
+      "week_start": null,
+      "field": "peak_weekly_tss",
+      "from": 504,
+      "to": 495,
+      "reason_code": "PEAK_LOWERED",
+      "reason_text": "Peak lowered to 495 TSS a week"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+   - > 12 weeks: base. Easy aerobic volume, run frequency, strides and hills.
+   - 6-12 weeks: build. Threshold is the priority: 3-4 x 8-10 min at threshold,
+     or 20-25 min continuous tempo, once or twice a week.
+   - 2-6 weeks: peak. Race-pace work (e.g. 4 x 2km at 15K effort) plus a small
+     dose of VO2 intervals to lift the ceiling.
+   - < 2 weeks: taper. See the taper block below.
+   Intensity distribution (80/20):
+   - Zone convention: Z1-Z2 = easy, below the first threshold; Z3 = tempo/"gray"; Z4 = threshold; Z5 = VO2. The 80% lives in Z1-Z2; the 20% is Z4-Z5.
+   - Apply the ratio to weekly TIME, not to session count, not per session, and not by distance. Target 80% +/- 5% easy across any given week.
+   - Base runs easier than 80/20: aim 85-90% easy. Build and peak sit at 80/20. Taper holds the ratio while total volume falls.
+   - Z3 is permitted here only as a deliberate race-pace block, never as the default pace of an easy run.
+   Weekly volume guide (total run volume; choose from athlete history, not ambition):
+   - Peak week: beginner 25-30km, intermediate 35-50km, advanced 55-70km. Base weeks sit at roughly 60-70% of that peak figure.
+   - Never raise weekly volume more than 10% above the previous week.
+   - Every 3rd or 4th week is a recovery week: cut volume 20-30%, keep one short quality touch, then resume the progression.
+   - Run days per week: 3-5. That is the target AND the ceiling, not a
+     minimum -- plan 3 or 5 run days and no more, even when the schedule
+     offers more available days, and even in a recovery week where short easy
+     runs are tempting. Only schedule_constraints.max_training_days_per_week
+     can lower it further. The remaining available days get NO session at all:
+     do not fill them with a swim, a ride, a brick or an extra jog.
+   Distance-specific emphasis:
+   - 15K sits just above threshold pace, so threshold work is the core of the plan; VO2 work is the seasoning, not the meal.
+   - Long session ceiling: long run 75-90 min. It is aerobic support, not a race-specific session, and needs no race-pace finish.
+   - Key sessions: threshold intervals (4 x 8 min, 2 x 15 min), race-pace repeats of 1.5-3km, and one weekly easy-volume day.
+   - Run-only goal: plan runs and nothing else. A day whose preferred_disciplines
+     lists swim or bike is still a day to RUN, or a day with no session at all --
+     the schedule says WHEN the athlete trains, this goal says WHAT they do.
+     Strength stays available when a day's preferred_disciplines names it. Swim
+     and bike come back only when athlete_custom_instructions asks for them, and
+     then only as Z1-Z2 aerobic support that never replaces a run day.
+   - Two hard run days per week maximum, never back-to-back.
+   - No bricks: a brick needs two race disciplines and this race has one. A day
+     whose session_type is "brick" is an ordinary run day here (rule 13).
+   Taper:
+   - 7-10 days, cut progressively to roughly 40-50% below the peak week, with the deepest reduction in the final five days.
+   - Hold session frequency and hold intensity: keep short race-pace efforts. Volume is the only variable that drops.

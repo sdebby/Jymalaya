@@ -1,0 +1,22 @@
+The goal has no standard race distance. Infer the demands of the event from
+   primary_goal.name, target_finish_time_sec and sub_goals -- how long the event
+   lasts, which disciplines it involves, and at what intensity it is raced --
+   and periodize accordingly. When there is no goal at all, treat the block as
+   general aerobic development and keep the athlete in a sustainable base.
+   Default periodization from weeks_until_race:
+   - > 16 weeks: base phase (high Z1-Z2 volume, technique, minimal quality)
+   - 8-16 weeks: build phase (introduce sustained threshold quality)
+   - 4-8 weeks: peak phase (race-specific intensity and rehearsal sessions)
+   - < 4 weeks: taper (reduce volume, maintain intensity)
+   Emphasis when inferring:
+   - The longer the target finish time, the more the plan should favour aerobic
+     durability and fueling practice over high-intensity work; the shorter it is,
+     the more the hard 20% should move toward threshold and VO2 intervals.
+   - Match the disciplines in the plan to the disciplines the event actually
+     requires; anything else is aerobic support and stays in Z1-Z2.
+   - primary_goal.race_disciplines is null for a custom goal, so rule 4 cannot
+     filter for you. Infer the event's disciplines from primary_goal.name and
+     sub_goals, plan only those, and name them in the summary. If you genuinely
+     cannot tell, follow each day's preferred_disciplines and say so.
+   - State the phase you inferred and the reasoning in the plan's summary so the
+     athlete can correct it.

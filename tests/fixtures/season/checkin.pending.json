@@ -1,0 +1,60 @@
+{
+  "week_start": "2026-10-12",
+  "status": "pending",
+  "opened_at": "2026-10-11T04:50:00+00:00",
+  "source": null,
+  "choice": null,
+  "chosen_at": null,
+  "closing_week": {
+    "week_start": "2026-10-05",
+    "target_tss": 353,
+    "actual_tss_to_date": 270,
+    "planned_remaining_tss": 82,
+    "projected_tss": 352,
+    "completion_pct": 100
+  },
+  "form": {
+    "ctl": 44.1,
+    "atl": 53.0,
+    "tsb": -8.9,
+    "band": "ok"
+  },
+  "loading_weeks_since_recovery": 3,
+  "recommended": "recovery",
+  "reason": "Three loading weeks done: a recovery week is due. Form is OK, so you could put it off once.",
+  "options": [
+    {
+      "choice": "increase",
+      "target_tss": 377,
+      "target_hours": 6.9,
+      "delta_pct_vs_last": 7,
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "choice": "stay",
+      "target_tss": 352,
+      "target_hours": 6.4,
+      "delta_pct_vs_last": 0,
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "choice": "decrease",
+      "target_tss": 310,
+      "target_hours": 5.6,
+      "delta_pct_vs_last": -12,
+      "enabled": true,
+      "disabled_reason": null
+    },
+    {
+      "choice": "recovery",
+      "target_tss": 230,
+      "target_hours": 4.2,
+      "delta_pct_vs_last": -35,
+      "enabled": true,
+      "disabled_reason": null
+    }
+  ],
+  "return_week": false
+}

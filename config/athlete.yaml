@@ -1,0 +1,13 @@
+# Athlete profile (non-secret). Mirrored into the InfluxDB `athlete_profile`
+# measurement when a value is changed in Settings. Edit with your real
+# thresholds; example values below.
+# See PRD assets/PRD.md section 7.2.
+
+ftp_w: 250                      # Functional Threshold Power (Watts) -- cycling
+run_threshold_pace_sec_km: 270  # Run threshold pace (sec/km) -- 4:30 min/km
+css_sec_100m: 95                # Critical Swim Speed (sec/100m) -- 1:35 / 100m
+lthr_bpm: 162                   # Lactate Threshold Heart Rate (bpm)
+weight_kg: 72
+activity_class: 4               # habitual activity level, 0 (inactive) - 10 (competitive)
+vo2max_decline_threshold: 0.5   # 4-week VO2max drop (ml/kg/min) that asks for a VO2max session
+birthday: "1988-06-15"          # age is derived from this on every read, never stored

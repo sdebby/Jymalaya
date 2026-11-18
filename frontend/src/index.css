@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+}
+body {
+  background: #070809;
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #2c3235;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Activity-class slider (Settings > Athlete profile). The track gradient and
+   the --thumb colour are set inline from the theme tokens; only the parts that
+   need pseudo-elements live here. */
+.activity-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+.activity-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+.activity-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: transparent;
+}
+.activity-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--thumb, #5794f2);
+  border: 2px solid #14161b;
+  cursor: pointer;
+}
+.activity-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--thumb, #5794f2);
+  border: 2px solid #14161b;
+  cursor: pointer;
+}
+
+/* Participation switch (Manage events footer). Colours and the knob are inline;
+   only the keyboard focus ring needs a pseudo-class. */
+.participation-switch:focus-visible {
+  outline: 2px solid #5794f2;
+  outline-offset: 2px;
+}
+
+/* Coach-chat "thinking" indicator: three dots that rise and brighten in turn.
+   The dots take the bubble's text colour, so the theme stays in CoachChat. */
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 19px;
+}
+.typing-dots > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.35;
+  animation: typing-dot 1.2s ease-in-out infinite;
+}
+.typing-dots > span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.typing-dots > span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes typing-dot {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .typing-dots > span {
+    animation-duration: 2.4s;
+    transform: none !important;
+  }
+}
+
+/* Waiting screen (BackendGate): a pulse running along the heartbeat line. */
+.heartbeat-pulse {
+  stroke-dasharray: 38 62;
+  animation: heartbeat-run 2s linear infinite;
+}
+.waiting-status {
+  animation: waiting-fade 2s ease-in-out infinite;
+}
+@keyframes heartbeat-run {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+@keyframes waiting-fade {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .heartbeat-pulse {
+    animation: none;
+    stroke-dasharray: none;
+  }
+  .waiting-status {
+    animation: none;
+  }
+}
+
+/* Dragging a planned session (Predicted Week): the whole page keeps the grabbing
+   cursor and no text gets selected on the way. The floating card, the day tiles
+   and the flights are in useSessionDrag / PredictedWeek. */
+body.session-dragging,
+body.session-dragging * {
+  cursor: grabbing !important;
+  user-select: none;
+}
+body.session-dragging [data-plan-refused="true"],
+body.session-dragging [data-plan-refused="true"] * {
+  cursor: not-allowed !important;
+}
+.plan-day-tile {
+  transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.16s ease, border-color 0.16s ease, background-color 0.16s ease;
+}
+.plan-session-settled {
+  animation: plan-session-settle 0.42s ease-out;
+}
+@keyframes plan-session-settle {
+  0% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 2px var(--settle-color, #5794f2);
+  }
+  55% {
+    transform: scale(0.985);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plan-day-tile {
+    transition: none;
+  }
+  .plan-session-settled {
+    animation: none;
+  }
+}
+
+/* Coach-chat markdown bubbles — compact spacing tuned to the 12.5px chat text. */
+.coach-md > *:first-child {
+  margin-top: 0;
+}
+.coach-md > *:last-child {
+  margin-bottom: 0;
+}
+.coach-md p {
+  margin: 6px 0;
+}
+.coach-md ul,
+.coach-md ol {
+  margin: 6px 0;
+  padding-left: 18px;
+}
+.coach-md li {
+  margin: 2px 0;
+}
+.coach-md h1,
+.coach-md h2,
+.coach-md h3,
+.coach-md h4 {
+  font-size: 13px;
+  margin: 8px 0 4px;
+}
+.coach-md code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 11.5px;
+}
+.coach-md pre {
+  background: rgba(0, 0, 0, 0.35);
+  padding: 8px 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 6px 0;
+}
+.coach-md pre code {
+  background: none;
+  padding: 0;
+}
+.coach-md a {
+  color: #5794f2;
+}
+.coach-md blockquote {
+  margin: 6px 0;
+  padding-left: 10px;
+  border-left: 3px solid #2c3235;
+  color: #9aa0a6;
+}
+.coach-md table {
+  border-collapse: collapse;
+  margin: 6px 0;
+}
+.coach-md th,
+.coach-md td {
+  border: 1px solid #2c3235;
+  padding: 3px 8px;
+  font-size: 11.5px;
+}
+
+/* Season plan bars: the chart takes keyboard focus as one group (arrow keys
+   move the highlighted week), so the ring goes on the whole chart. */
+.plan-bars:focus-visible {
+  outline: 2px solid #5794f2;
+  outline-offset: 2px;
+  border-radius: 3px;
+}

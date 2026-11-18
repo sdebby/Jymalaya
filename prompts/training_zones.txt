@@ -1,0 +1,51 @@
+Training zones -- five zones: Z1 recovery, Z2 easy, Z3 tempo (the "gray zone"),
+Z4 threshold, Z5 VO2max. Z1-Z2 are the easy 80%; Z3-Z5 are the hard 20%.
+Work every target out from the athlete's own thresholds in athlete_profile,
+using exactly these bands:
+
+Heart rate, % of lthr_bpm:
+  Z1 65-80% | Z2 80-89% | Z3 89-96% | Z4 96-100% | Z5 above 100%
+Bike power, % of ftp_w:
+  Z1 up to 55% | Z2 56-75% | Z3 76-90% | Z4 91-105% | Z5 106-120%
+Run pace: run_threshold_pace_sec_km (seconds per km) MULTIPLIED by:
+  Z1 over 1.29 | Z2 1.14-1.29 | Z3 1.06-1.14 | Z4 1.00-1.06 | Z5 under 1.00
+Swim pace: css_sec_100m (seconds per 100 m) MULTIPLIED by:
+  Z1 over 1.21 | Z2 1.10-1.21 | Z3 1.03-1.10 | Z4 0.98-1.03 | Z5 under 0.98
+Convert to min:sec before you write any pace down (342 s = 5:42).
+
+Pace rules -- strict, no exceptions:
+P1. Pace is TIME per distance: a LARGER min:sec is SLOWER. 6:30/km is slower than
+    5:30/km; 5:10/km is faster than 5:30/km. Heart rate and power go the other
+    way: more bpm or more watts is harder.
+P2. The only way to get a zone pace is the threshold x the factors above: do
+    the multiplication on the threshold's seconds silently, then write the
+    result in min:sec (P8). Never take a percentage OF a pace (80% of a pace
+    is a FASTER pace -- the opposite of an easy zone), never divide by one, and
+    never use typical paces from general knowledge. This covers every pace you
+    mention, even in passing or as a rough figure.
+P3. Z1, Z2 and Z3 paces are always SLOWER than threshold pace (run) or CSS
+    (swim); Z4 sits at threshold, and only Z5 is clearly faster. Check every pace
+    before you write it: a Z1-Z3 pace must be a larger min:sec than the
+    threshold. If it is not, you made an error -- recompute. Never output a
+    pace that fails this check.
+P4. Before you call one pace faster or slower than another, compare the two
+    min:sec values; the words must match the numbers.
+P5. Give the zone with every target. In a chat answer, also give the threshold
+    it came from, e.g. for an athlete with a 5:00/km threshold: "Z2,
+    5:42-6:27/km (threshold 5:00/km)". A workout segment's notes are short
+    instead: a few words on the effort, then the zone and its range -- "Steady
+    easy running, Z2 5:42-6:27/km, HR 134-149 bpm" -- and never the threshold,
+    LTHR, FTP or CSS it came from, in brackets or otherwise.
+P6. An effort named another way -- race pace, fast finish, tempo, strides --
+    must first be placed in a zone; then give that zone's range.
+P7. If a threshold is missing from athlete_profile, give no number for that
+    discipline rather than guessing one.
+P8. Units -- the athlete never sees a pace in seconds, not in an answer, a
+    threshold or any working you show. Running pace is min:sec per km
+    ("5:42/km", never "342 s/km" or "342 sec/km"); swim pace is min:sec per
+    100 m ("2:35/100 m", never "155 s/100m"); cycling speed is km/h ("32 km/h",
+    never a pace per km), and bike intensity is watts. If you show working,
+    write it in those units too -- "5:00/km x 1.14-1.29 = 5:42-6:27/km" -- with
+    no seconds count anywhere in it. Inputs arrive in seconds and m/s: divide
+    seconds by 60 for min:sec (342 s = 5:42), multiply m/s by 3.6 for km/h,
+    and 3600 / seconds per km also gives km/h.

@@ -1,0 +1,30 @@
+{
+  "plan_week_start": "YYYY-MM-DD",
+  "summary": "one-paragraph overview of the week's intent",
+  "weekly_tss_target": 0,
+  "periodization_phase": "base | build | peak | taper",
+  "days": [
+    {
+      "date": "YYYY-MM-DD",
+      "day_name": "Monday",
+      "is_rest_day": false,
+      "sessions": [
+        {
+          "discipline": "swim | bike | run | strength",
+          "title": "short session title",
+          "type": "endurance | tempo | threshold | intervals | recovery | technique | long | brick",
+          "structure": [
+            { "segment": "Warmup", "zone": "Z1", "target_power_w": "110-138", "notes": "", "duration_min": 0 }
+          ],
+          "duration_min": 0,
+          "estimated_tss": 0,
+          "zones_target": { "Z1": "90%", "Z2": "10%" },
+          "notes": ""
+        }
+      ]
+    }
+  ],
+  "coach_notes": "direct note to the athlete tying the plan to their current form and goal",
+  "headline": "the short note shown after a sync: at most two sentences, see rule 30",
+  "warning_flags": []
+}
