@@ -241,8 +241,8 @@ export interface WorkoutAnalysis {
 //   plan    — a planned session. sessionIndex is its zero-based position within
 //             its plan day: the address the coach's plan-editing tools use, since
 //             the plan JSON has no session IDs.
-//   workout — a completed session plus its analysis, so the coach can pick up the
-//             conversation where the insights left off.
+//   workout — a completed session. The chat names it by activity_id and the
+//             backend sends its full recorded data and cached analysis.
 export interface PlanAttachment {
   kind: "plan";
   session: PlanSession;
@@ -254,7 +254,6 @@ export interface PlanAttachment {
 export interface WorkoutAttachment {
   kind: "workout";
   workout: WorkoutRow;
-  analysis?: WorkoutAnalysis;
   date: string;
   dayName: string;
 }

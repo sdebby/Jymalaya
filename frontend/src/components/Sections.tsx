@@ -406,7 +406,7 @@ export function PastWeek({ workouts, onAskCoach }: { workouts: WorkoutRow[]; onA
           workout={detail.workout}
           date={detail.date}
           dayName={detail.dayName}
-          onAskCoach={(analysis) => onAskCoach({ kind: "workout", workout: detail.workout, analysis, date: detail.date, dayName: detail.dayName })}
+          onAskCoach={() => onAskCoach({ kind: "workout", workout: detail.workout, date: detail.date, dayName: detail.dayName })}
           onClose={() => setDetail(null)}
         />
       )}
@@ -773,7 +773,7 @@ export function PredictedWeek({ plan, settings, workouts, events, onAskCoach, on
           date={override.date}
           dayName={override.dayName}
           coachRecommendation={override.recommendation}
-          onAskCoach={(analysis) => onAskCoach({ kind: "workout", workout: override.workout, analysis, date: override.date, dayName: override.dayName })}
+          onAskCoach={() => onAskCoach({ kind: "workout", workout: override.workout, date: override.date, dayName: override.dayName })}
           onClose={() => setOverride(null)}
         />
       )}

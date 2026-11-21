@@ -13,8 +13,8 @@ import {
   type ChatMsg,
 } from "../chatStore";
 import { GENERAL_SUGGESTIONS, syncSuggestions } from "../derive";
-import { hm, km, monthDay, pace, round } from "../format";
-import type { CoachAttachment, Plan, PlanAttachment, SeasonWeekAttachment, WorkoutAttachment, WorkoutRow } from "../types";
+import { km, monthDay } from "../format";
+import type { CoachAttachment, Plan, PlanAttachment, SeasonWeekAttachment, WorkoutRow } from "../types";
 
 // Only the most recent turns go to Claude; the panel still shows the full 7 days.
 const HISTORY_SENT_TO_API = 20;
@@ -65,38 +65,41 @@ function greeting(): ChatMsg {
   };
 }
 
-// Full readable dump of the most recent workout, sent to the coach on /last.
-function formatLastWorkout(workouts: WorkoutRow[]): string | null {
+// One line naming a completed workout in the chat. Its full recorded data
+// (streams, laps, zones, ratings, the cached analysis) is not in the message:
+// the request names the workout in workout_ids and the backend adds the data to
+// the coach's system context (app/ai/workout_context.py), so it is neither
+// shown in the bubble nor repeated through the history.
+function workoutHeader(w: WorkoutRow, when: string): string {
+  const distance =
+    w.distance_m == null ? null : w.discipline === "swim" ? `${Math.round(w.distance_m)} m` : `${km(w.distance_m)} km`;
+  const parts = [
+    when,
+    w.discipline,
+    w.title,
+    w.duration_sec != null && `${Math.round(w.duration_sec / 60)} min`,
+    distance,
+    w.tss != null && `TSS ${Math.round(w.tss)}`,
+    w.is_brick_split && "part of a brick",
+  ].filter(Boolean);
+  return `${parts.join(", ")} (activity ${w.activity_id}, full recorded data attached)`;
+}
+
+// The most recent workout, sent to the coach on /last.
+function lastWorkout(workouts: WorkoutRow[]): WorkoutRow | null {
   if (!workouts.length) return null;
-  const w = [...workouts].sort((a, b) => b.time.localeCompare(a.time))[0];
-  const lines = [
-    `date: ${new Date(w.time).toLocaleString()}`,
-    `discipline: ${w.discipline}`,
-    w.title && `title: ${w.title}`,
-    `duration: ${hm(w.duration_sec)} h`,
-    w.distance_m != null && `distance: ${km(w.distance_m)} km`,
-    w.tss != null && `TSS: ${round(w.tss)}`,
-    w.intensity_factor != null && `intensity factor: ${w.intensity_factor.toFixed(2)}`,
-    w.avg_hr != null && `avg HR: ${round(w.avg_hr)} bpm`,
-    w.avg_power != null && `avg power: ${round(w.avg_power)} W`,
-    w.normalized_power != null && `normalized power: ${round(w.normalized_power)} W`,
-    w.avg_pace_sec_per_km != null && `avg pace: ${pace(w.avg_pace_sec_per_km)} /km`,
-    w.avg_pace_sec_per_100m != null && `avg pace: ${pace(w.avg_pace_sec_per_100m)} /100m`,
-    w.is_brick_split && `part of a brick session`,
-  ].filter(Boolean) as string[];
-  if (w.zones_time_sec) {
-    try {
-      const zones = JSON.parse(w.zones_time_sec) as Record<string, number>;
-      const z = Object.keys(zones)
-        .sort()
-        .map((k) => `${k} ${Math.round(zones[k] / 60)}m`)
-        .join(" · ");
-      if (z) lines.push(`time in HR zones: ${z}`);
-    } catch {
-      /* ignore bad zone JSON */
-    }
-  }
-  return lines.join("\n");
+  return [...workouts].sort((a, b) => b.time.localeCompare(a.time))[0];
+}
+
+// The distinct workouts attached in the turns sent to Claude plus this one,
+// newest first: the backend reads each one's full data (at most 3).
+const MAX_ATTACHED_WORKOUTS = 3;
+function attachedWorkoutIds(history: ChatMsg[], current?: string): string[] {
+  // The backend's activity-id pattern: an odd value from storage must not 422 the turn.
+  const ids = [current, ...[...history].reverse().map((m) => m.workoutId)].filter(
+    (id): id is string => typeof id === "string" && /^[A-Za-z0-9_-]{1,64}$/.test(id),
+  );
+  return [...new Set(ids)].slice(0, MAX_ATTACHED_WORKOUTS);
 }
 
 // Markdown rendering of the cached plan for /summary — same numbers as the
@@ -164,33 +167,6 @@ function formatPlanSession(a: PlanAttachment): string {
   return lines.join("\n");
 }
 
-// A completed workout attached from its detail modal, with whatever analysis has
-// already been produced. No plan reference line: this session is history, so the
-// coach's plan-editing tools do not address it.
-function formatCompletedWorkout(a: WorkoutAttachment): string {
-  const w = a.workout;
-  const lines = [
-    `day: ${a.dayName} ${a.date}`,
-    `discipline: ${w.discipline}`,
-    w.title && `title: ${w.title}`,
-    w.duration_sec != null && `duration: ${Math.round(w.duration_sec / 60)} min`,
-    w.distance_m != null &&
-      `distance: ${w.discipline === "swim" ? `${Math.round(w.distance_m)} m` : `${(w.distance_m / 1000).toFixed(2)} km`}`,
-    w.tss != null && `TSS: ${Math.round(w.tss)}`,
-    w.avg_hr != null && `avg HR: ${Math.round(w.avg_hr)} bpm`,
-    w.avg_power != null && `avg power: ${Math.round(w.avg_power)} W`,
-    w.intensity_factor != null && `IF: ${w.intensity_factor.toFixed(2)}`,
-  ].filter(Boolean) as string[];
-
-  const an = a.analysis;
-  if (an) {
-    lines.push("", "your analysis of this session:");
-    if (an.plan_adherence?.verdict) lines.push(`  execution: ${an.plan_adherence.verdict}`);
-    for (const item of an.what_to_improve ?? []) lines.push(`  to improve: ${item}`);
-  }
-  return lines.join("\n");
-}
-
 // A season-plan week attached from its week panel: the week's targets and the
 // address the adjust_season_plan tool uses (the week's first day).
 function formatSeasonWeek(a: SeasonWeekAttachment): string {
@@ -223,8 +199,10 @@ function attachmentWhen(a: CoachAttachment): string {
 
 function attachmentText(a: CoachAttachment): string {
   if (a.kind === "season_week") return `About this season plan week:\n${formatSeasonWeek(a)}`;
+  // A completed workout has no plan reference line: it is history, so the
+  // coach's plan-editing tools do not address it.
   return a.kind === "workout"
-    ? `About this completed workout:\n${formatCompletedWorkout(a)}`
+    ? `About this completed workout: ${workoutHeader(a.workout, `${a.dayName} ${a.date}`)}`
     : `About this planned workout:\n${formatPlanSession(a)}`;
 }
 
@@ -325,6 +303,8 @@ export function CoachChat({
   async function ask(text: string) {
     let t = text.trim();
     if (!t || loading) return;
+    // The completed workout this message sends, if any (attachment or /last).
+    let workoutId: string | undefined;
 
     // Slash commands are handled locally before anything goes to the API.
     if (t.startsWith("/")) {
@@ -374,8 +354,8 @@ export function CoachChat({
           setMessages((m) => [...m, { role: "coach", text: NO_CONTEXT_TEXT, ts: Date.now() }]);
           return;
         }
-        const summary = formatLastWorkout(workouts);
-        if (!summary) {
+        const last = lastWorkout(workouts);
+        if (!last) {
           setInput("");
           setMessages((m) => [
             ...m,
@@ -383,8 +363,10 @@ export function CoachChat({
           ]);
           return;
         }
+        const when = last.date ?? last.time.slice(0, 10);
+        workoutId = last.activity_id;
         t =
-          `Here is my last workout:\n${summary}\n\n` +
+          `Here is my last workout: ${workoutHeader(last, when)}\n\n` +
           (extra || "Analyze this workout for me — how did it go, and what should I take from it?");
       } else {
         setInput("");
@@ -401,17 +383,21 @@ export function CoachChat({
     // back on, so the guard here is belt-and-braces.
     if (attachment && includeContext && !text.trim().startsWith("/")) {
       t = `${attachmentText(attachment)}\n\n${t}`;
+      if (attachment.kind === "workout") workoutId = attachment.workout.activity_id;
       onClearAttachment();
     }
 
-    const history = messages.slice(-HISTORY_SENT_TO_API).map((m) => ({ role: m.role, text: m.text }));
-    setMessages((m) => [...m, { role: "user", text: t, ts: Date.now() }]);
+    const sent = messages.slice(-HISTORY_SENT_TO_API);
+    const history = sent.map((m) => ({ role: m.role, text: m.text }));
+    // With the context off no training data goes, attached earlier or not.
+    const workoutIds = includeContext ? attachedWorkoutIds(sent, workoutId) : [];
+    setMessages((m) => [...m, { role: "user", text: t, ts: Date.now(), workoutId }]);
     setInput("");
     setLoading(true);
     const ctrl = beginRequest("coach");
     let res: Awaited<ReturnType<typeof api.coach>>;
     try {
-      res = await api.coach(t, history, includeContext, ctrl.signal);
+      res = await api.coach(t, history, includeContext, ctrl.signal, workoutIds);
     } catch (e) {
       if (isAbortError(e)) return; // stopped by the user; stop() handled the UI
       res = null;

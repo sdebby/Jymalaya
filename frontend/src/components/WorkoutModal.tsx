@@ -43,8 +43,9 @@ export function WorkoutModal({
   // Set when this workout happened on a day the plan marked as rest — explains
   // why the plan and the synced activity disagree.
   coachRecommendation?: string;
-  // Attach this workout (and its analysis, when there is one) to the coach chat.
-  onAskCoach?: (analysis?: WorkoutAnalysis) => void;
+  // Attach this workout to the coach chat. The backend sends its full recorded
+  // data, and the cached analysis when there is one.
+  onAskCoach?: () => void;
   onClose: () => void;
 }) {
   const accent = DISCIPLINE_COLOR[workout.discipline] ?? C.muted;
@@ -255,10 +256,10 @@ export function WorkoutModal({
             {analyzing && <Spinner />}
             {analyzing ? "Analyzing…" : analysis ? "Re-analyze" : "Analyze workout"}
           </button>
-          {onAskCoach && analysis && (
+          {onAskCoach && (
             <button
               onClick={() => {
-                onAskCoach(analysis);
+                onAskCoach();
                 onClose();
               }}
               title="Ask coach"

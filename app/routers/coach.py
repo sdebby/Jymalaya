@@ -13,6 +13,7 @@ from app.ai.claude import (
     split_suggestions,
 )
 from app.ai.prompt_builder import build_coach_context, build_general_coach_context
+from app.ai.workout_context import attached_workouts_context
 from app.instructions import get_instructions
 from app.models import CoachInstructions, CoachRequest
 from app.settings_editor import save_instructions_and_notify
@@ -30,6 +31,13 @@ def coach(body: CoachRequest):
     context = (
         build_coach_context() if body.include_context else build_general_coach_context()
     )
+    # A workout attached in the chat brings its full recorded data, once per
+    # turn in the system context rather than in the message history. Never
+    # with the context off: no training data leaves storage then.
+    if body.include_context and body.workout_ids:
+        attached = attached_workouts_context(body.workout_ids)
+        if attached:
+            context = f"{context}\n\n{attached}"
     try:
         reply, plan_updated, settings_updated = coach_reply(
             body.message,

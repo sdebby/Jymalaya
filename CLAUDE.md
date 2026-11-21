@@ -181,6 +181,10 @@ Also built (2026-11-17): **workout load impact** -- three slim tiles, Fitness /
 Fatigue / Form, directly above the Training Effect dials in the
 completed-workout modal. See the decisions bullet below.
 
+Also built (2026-11-21): **a workout sent to the coach chat carries its full
+recorded data** -- the streams, laps, zones, ratings and analysis the modal
+shows, as compact text in the coach's context. See the decisions bullet below.
+
 ## Authoritative spec
 
 `assets/PRD.md` (Jymalaya AI Coach v1.1) — full architecture, data model, TSS/CTL/ATL/TSB
@@ -1319,7 +1323,8 @@ Row order lives in `frontend/src/App.tsx`.
   (2) **Display only, like recovery**: `_recent_workouts` and `_workout_block`
   in `prompt_builder.py` whitelist their keys, so no plan, chat or analysis
   payload carries Training Effect; `tests/test_training_effect.py` pins it.
-  Sending it to Claude later is a deliberate decision.
+  The one exception, since 2026-11-21: a workout the athlete sends to the chat
+  (see "Workout data in the coach chat").
   (3) The section is left out when neither score is stored (workouts synced
   before this, activities Garmin does not score). The bands are Garmin's
   (No Benefit, Minor, Maintaining, Impacting, Highly Impacting, Overreaching at
@@ -1352,8 +1357,29 @@ Row order lives in `frontend/src/App.tsx`.
   unless `--apply`) writes only the two fields; applied for 30 days on
   2026-11-14 (14 of 19 workouts had a rating).
   (4) **Not sent to Claude**, like Training Effect: the payload blocks whitelist
-  their keys and `tests/test_workout_rating.py` pins it. Sending RPE to the
-  coach later is a deliberate decision.
+  their keys and `tests/test_workout_rating.py` pins it. The one exception,
+  since 2026-11-21: a workout the athlete sends to the chat (the next bullet).
+- **Workout data in the coach chat (2026-11-21, the athlete's ask)**: Ask coach
+  on a completed workout (now on every workout, not only after Analyze) and
+  `/last` send the workout's full recorded data. Things easy to re-break:
+  (1) **Not in the message**: the user turn carries one header line and
+  `workoutId` (`ChatMsg`); `POST /coach` gets `workout_ids` (the distinct ids of
+  this turn and the 20-message history window, newest first, at most 3, the
+  analysis route's id pattern), and `attached_workouts_context` in
+  `app/ai/workout_context.py` appends one block per workout to the system
+  context. So the data is never shown in the bubble or repeated through the
+  history, and follow-up turns still see it. Ignored with "Include context" off.
+  (2) **The block is everything the modal shows**, read from storage: summary,
+  load impact against a rest day, Training Effect, RPE / feel, HR and power
+  zones, the derived metrics (`build_derived_metrics`; decoupling is the
+  efficiency graph's drift), the planned workout, laps, the 30 s streams
+  (`bucket_stream`, the graphs' buckets) and the cached analysis.
+  (3) **Kept small**: tables are CSV with empty columns dropped, numbers rounded
+  to the graphs' precision, paces already min:sec (rule P8) and bike in km/h.
+  Measured on live data: about 4.4k characters for a 53-min run, 11.5k for a
+  98-min ride. A workout with no samples sends its summary; a failure leaves
+  that workout out and never fails the turn.
+  `tests/test_coach_workout_attachment.py` pins it.
 - **Workout load impact (2026-11-17, the athlete's ask)**: `LoadImpactSection`
   (`frontend/src/charts/LoadImpact.tsx`) in `WorkoutModal`, above Training
   Effect in the same section, for any workout with TSS > 0. Design: the

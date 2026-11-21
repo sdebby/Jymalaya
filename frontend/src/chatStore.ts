@@ -11,6 +11,7 @@ export interface ChatMsg {
   settingsUpdated?: boolean; // coach turn that saved an approved settings change
   error?: boolean; // the turn failed (backend error or no response): shown in red
   suggestions?: string[]; // the follow-up questions the coach ended this reply with (the chips)
+  workoutId?: string; // user turn that sent a completed workout: its full data rides along while in the history window
 }
 
 const KEY = "tricoach.coachChat";

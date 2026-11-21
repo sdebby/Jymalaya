@@ -286,12 +286,15 @@ export const api = {
     history: { role: string; text: string }[],
     includeContext: boolean,
     signal?: AbortSignal,
+    // Completed workouts attached in the conversation: the backend adds each
+    // one's full recorded data to the coach's context.
+    workoutIds: string[] = [],
   ): Promise<{ reply: string; plan_updated: boolean; settings_updated?: boolean; suggestions?: string[]; error?: boolean } | null> => {
     try {
       const res = await fetch(BASE + `/coach`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message, history, include_context: includeContext }),
+        body: JSON.stringify({ message, history, include_context: includeContext, workout_ids: workoutIds }),
         signal,
       });
       if (!res.ok) {

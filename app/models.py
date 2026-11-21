@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from datetime import date
-from typing import Literal, Optional, get_args
+from typing import Annotated, Literal, Optional, get_args
 
 from pydantic import (
     BaseModel,
     ConfigDict,
     Field,
+    StringConstraints,
     computed_field,
     field_validator,
     model_validator,
@@ -148,6 +149,12 @@ class CoachRequest(BaseModel):
     # from general triathlon knowledge only: no athlete data in the system
     # prompt and no plan-editing tools (see app/routers/coach.py).
     include_context: bool = True
+    # Completed workouts attached in the conversation (newest first): the route
+    # adds each one's full recorded data to the system context. The pattern is
+    # the analysis route's activity_id guard.
+    workout_ids: list[Annotated[str, StringConstraints(pattern=r"^[A-Za-z0-9_-]+$", max_length=64)]] = Field(
+        default_factory=list, max_length=3
+    )
 
 
 class CoachInstructions(BaseModel):
